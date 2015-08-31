@@ -32,7 +32,7 @@ Intro
 -----
 
 BEM Utils adds some sugar to writing out BEM-style className and authoring
-BEM-style CSS through the use of tagged template strings. BEM is great for
+BEM-style CSS through the use of *tagged template strings*. BEM is great for
 your codebase, but it's ugly, and the less you have to think about it, the
 better.
 
