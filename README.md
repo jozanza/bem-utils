@@ -34,6 +34,8 @@ BEM-style CSS through the use of *tagged template strings*. BEM is great for
 your codebase, but it's ugly, and the less you have to think about it, the
 better.
 
+##### Here's how it works for classNames:
+
 <img alt="BEM className shorthand" src="https://pbs.twimg.com/media/CNsJ7GmW8AIt23B.png:large" />
 
 Usage
@@ -42,110 +44,47 @@ Usage
 ### ClassNames
 
 ```js
-import BEM from 'bem-utils';
-const BLOCK = 'Button';
+import BEM from 'bem-utils'
+const BLOCK = 'Button'
 
-{
+let { classNames: cx } = BEM(BLOCK)
 
-  /*
-   * ES2015+
-   */
+cx`@`
+// -> Button
 
-  let { classNames: cx } = BEM(BLOCK);
+cx`@ default`
+// -> Button Button--default
 
-  cx`@`
-  // -> Button
+cx`@ default, tall big`
+// -> Button Button--default, Button--tall--big
 
-  cx`@ default`
-  // -> Button Button--default
+cx`@content`
+// -> Button__content
 
-  cx`@ default, tall big`
-  // -> Button Button--default, Button--tall--big
+cx`@content/icon pink light`
+// -> Button__content__icon Button__content__icon--pink--light
 
-  cx`@content`
-  // -> Button__content
-
-  cx`@content/icon pink light`
-  // -> Button__content__icon Button__content__icon--pink--light
-
-  cx`@content/text large, purple`
-  // -> Button__content__text Button__content__text--large Button__content__text--purple
-}
-{
-
-  /*
-   * ES5
-   */
-
-  var cx = BEM.classNames;
-
-  cx(BLOCK, '@');
-  // -> Button
-
-  cx(BLOCK, '@ default');
-  // -> Button Button--default
-
-  cx(BLOCK, '@ default, tall big');
-  // -> Button Button--default, Button--tall--big
-
-  cx(BLOCK, '@content');
-  // -> Button__content
-
-  cx(BLOCK, '@content/icon pink light');
-  // -> Button__content__icon Button__content__icon--pink--light
-
-  cx(BLOCK, '@content/text large, purple');
-  // -> Button__content__text Button__content__text--large Button__content__text--purple
-
-}
+cx`@content/text large, purple`
+// -> Button__content__text Button__content__text--large Button__content__text--purple
 ```
-
-
 
 ### CSS
 
 ```js
-import BEM from 'bem-utils';
-const BLOCK = 'Button';
+import BEM from 'bem-utils'
+const BLOCK = 'Button'
 
-{
+let { css } = BEM(BLOCK)
 
-  /*
-   * ES2015+
-   */
-
-  let { css } = BEM(BLOCK);
-
-  css`
-    .default ${`
-      color: red;
-    `}
-    .default.big span .text:hover .purple ${`
-      color: purple;
-      text-align: center;
-    `}
-  `
-
-}
-{
-
-  /*
-   * ES5
-   */
-
-  var css = BEM.css;
-
-  css(BLOCK, [
-    '.default',
-    '.default.big span .text:hover .purple'
-  ], [
-    'color: red;',
-    'color: purple;' +
-    'text-align: center;'
-  ]);
-
-}
-
+css`
+  .default ${`
+    color: red;
+  `}
+  .default.big span .text:hover .purple ${`
+    color: purple;
+    text-align: center;
+  `}
+`
 ```
 
 will output the following css:
