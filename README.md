@@ -21,7 +21,6 @@
 - [Install](#install)
 - [Intro](#intro)
 - [Usage](#usage)
-- [API](#api)
 
 Install
 -------
