@@ -102,7 +102,7 @@ const BLOCK = 'Button';
 
 
 
-### Writing CSS
+### CSS
 
 ```js
 import BEM from 'bem-utils';
