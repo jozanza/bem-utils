@@ -12,7 +12,6 @@
     <img alt="devdependency status" src="https://david-dm.org/jozanza/bem-utils/dev-status.svg" />
   </a>
 </p>
-<br />
 
 # BEM Utils
 
