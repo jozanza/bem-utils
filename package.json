@@ -1,6 +1,6 @@
 {
   "name": "bem-utils",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Sugar for writing BEM-style classNames and CSS",
   "author": "Josiah Savary <hello@jsavary.com> (jsavary.com)",
   "license": "MIT",
