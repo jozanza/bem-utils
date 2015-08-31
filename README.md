@@ -87,7 +87,7 @@ css`
 `
 ```
 
-will output the following css:
+The code above outputs the following css:
 
 ```css
 .Button--default {
