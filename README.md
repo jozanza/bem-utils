@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="http://badge.fury.io/js/react-classy">
-    <img alt="npm version" src="https://badge.fury.io/js/react-classy.svg" />
+  <a href="http://badge.fury.io/js/bem-utils">
+    <img alt="npm version" src="https://badge.fury.io/js/bem-utils.svg" />
   </a>
   <a href="https://travis-ci.org/jozanza/bem-utils">
     <img alt="build status" src="https://travis-ci.org/jozanza/bem-utils.svg" />
