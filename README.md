@@ -11,6 +11,9 @@
   <a href="https://david-dm.org/jozanza/bem-utils#info=devDependencies">
     <img alt="devdependency status" src="https://david-dm.org/jozanza/bem-utils/dev-status.svg" />
   </a>
+  <a href='https://coveralls.io/github/jozanza/bem-utils?branch=master'>
+    <img src='https://coveralls.io/repos/jozanza/bem-utils/badge.svg?branch=master&service=github' alt='Coverage Status' />
+  </a>
 </p>
 
 # BEM Utils

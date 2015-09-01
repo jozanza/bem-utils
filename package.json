@@ -16,6 +16,8 @@
     "babel": "npm run -s rimraf -- lib && babel src --out-dir lib --stage 0 --optional runtime",
     "lint": "npm run -s eslint -s -- src && cat winning.txt",
     "coverage": "npm run -s istanbul -- cover node_modules/.bin/_mocha -- --reporter nyan --require mocha.config test/*.spec.js",
+    "update-coverage": "npm run -s coverage && cat ./coverage/lcov.info | npm run -s coveralls && rm -rf ./coverage",
+    "coveralls": "node_modules/.bin/coveralls",
     "eslint": "node_modules/.bin/eslint",
     "istanbul": "node_modules/.bin/istanbul",
     "mocha": "node_modules/.bin/mocha",
@@ -46,6 +48,7 @@
   "devDependencies": {
     "babel-eslint": "4.0.10",
     "chai": "3.2.0",
+    "coveralls": "^2.11.4",
     "eslint": "1.2.1",
     "istanbul": "0.3.18",
     "jsdom": "6.1.0",
