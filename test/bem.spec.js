@@ -51,52 +51,62 @@ describe('BEM module', () => {
     let BEM = require('../src/bem').default;
     let block = 'test';
     let { css } = BEM(block);
-    let sel4 = '.big .content:hover > div:nth-child(3) + p .icon.pink.light';
 
     // .test--default {
     //   color: #000;
     // }
-    expect(css`
-      .default ${`
-        color: #000;
-      `}
-    `).to.equal(
-      `.${block}--default{color:#000;}`
-    );
+    {
+      let dec = `color: #000;`;
+      expect(css`
+        .default ${dec}
+      `).to.equal(
+        `.${block}--default{${dec.trim()}}`
+      );
+    }
 
     // .test--default--big span .test__text--purple {
     //   color: purple;
     // }
-    expect(css`
-      .default.big span .text.purple ${`
-        color: purple;
-      `}
-    `).to.equal(
-      `.${block}--default--big span .${block}__text--purple{color:purple;}`
-    );
+    {
+      let dec = `color: purple;`;
+      expect(css`
+        .default.big span .text.purple ${dec}
+      `).to.equal(
+        `.${block}--default--big span .${block}__text--purple{${dec.trim()}}`
+      );
+    }
 
     // .test--default--big span .test__text .test__text__purple {
     //   color: purple;
     // }
-    expect(css`
-      .default.big span .text .purple ${`
+    {
+      let dec = `
         color: purple;
-      `}
-    `).to.equal(
-      `.${block}--default--big span .${block}__text .${block}__text__purple{color:purple;}`
-    );
+      `;
+      expect(css`
+        .default.big span .text .purple ${dec}
+      `).to.equal(
+        `.${block}--default--big span .${block}__text .${block}__text__purple{${dec.trim()}}`
+      );
+    }
 
     // .test--big test__content:hover > div:nth-child(3) + p .test__content__icon--pink--light {
-    //   color: purple;
+    //   color: pink;
+    //   opacity: .1;
+    //   border: 1px solid hotpink;
     // }
-    expect(css`
-      .big .content:hover > div:nth-child(3) + p .icon.pink.light ${`
+    {
+      let dec = `
         color: pink;
         opacity: .1;
-      `}
-    `).to.equal(
-      `.${block}--big .${block}__content:hover > div:nth-child(3) + p .${block}__content__icon--pink--light{color:pink;opacity:.1;}`
-    );
+        border: 1px solid hotpink;
+      `;
+      expect(css`
+        .big .content:hover > div:nth-child(3) + p .icon.pink.light ${dec}
+      `).to.equal(
+        `.${block}--big .${block}__content:hover > div:nth-child(3) + p .${block}__content__icon--pink--light{${dec.trim()}}`
+      );
+    }
 
   });
 

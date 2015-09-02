@@ -131,7 +131,7 @@ export function bemifyCSS(block, selectors, ...props) {
   return props
     .map(x => x.trim())
     .filter(x => x)
-    .map((x, i) => selectors[i] + `{${x.replace(/\s+/g, '')}}`)
+    .map((x, i) => selectors[i] + `{${x.trim()}}`)
     .join('\n');
 }
 
