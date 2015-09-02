@@ -79,7 +79,7 @@ export function tokenizeClassString(block, classes, ...props) {
       !!~classes.indexOf(' ')
         ? classes.indexOf(' ')-1
         : undefined)
-    .replace(/\//, '__');
+    .replace(/\//g, '__');
   let modifiers = classes
     .substr(
     !!~classes.indexOf(' ')

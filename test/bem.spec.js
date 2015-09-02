@@ -45,6 +45,12 @@ describe('BEM module', () => {
       `${block}__content__text ${block}__content__text--large ${block}__content__text--purple`
     );
 
+    // @a/b/c/d/e/f/g
+    // test__a__b__c__d__e__f__g
+    expect(cx`@a/b/c/d/e/f/g`).to.equal(
+      `${block}__a__b__c__d__e__f__g`
+    );
+
   });
 
   it('should apply BEM prefix to css selector text', () => {
