@@ -97,7 +97,7 @@ cx`@content/text large, purple`
 
 /**
  * You can also omit the leading special character(s) and start adding modifiers.
- * Modifiers will be appliead to the proper namespace
+ * Modifiers will be applied to the proper namespace
  */
 
 cx`default`
