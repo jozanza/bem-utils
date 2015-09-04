@@ -78,7 +78,7 @@ cx`@content/text large, purple`
  */
 
  cx`+@`
- // -> Button Button
+ // -> Button
 
  cx`+@ default`
  // -> Button Button--default
