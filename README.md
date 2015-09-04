@@ -96,7 +96,8 @@ cx`@content/text large, purple`
  // -> Button__content__text Button__content__text--large Button__content__text--purple
 
 /**
- *
+ * You can also omit the leading special character(s) and start adding modifiers.
+ * Modifiers will be appliead to the proper namespace
  */
 
 cx`default`
