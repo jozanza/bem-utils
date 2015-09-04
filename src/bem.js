@@ -9,9 +9,9 @@
 
 /**
  *
- * [BEM description]
+ * Returns namespaced template string methods
  *
- * @param {[type]} block [description]
+ * @param {String} block The 'B' in BEM
  */
 export default function BEM(block) {
   let methods = {};
@@ -25,7 +25,7 @@ export default function BEM(block) {
 
 /**
  *
- * [methods description]
+ * Contains public util methods
  *
  * @type {Object}
  */
@@ -38,20 +38,7 @@ BEM.methods = {
 
 /**
  *
- * [css description]
- *
- * @type {Function}
- */
-Object.defineProperty(BEM, 'css', {
-  get: function () {
-    return BEM.methods.css;
-  },
-  set: function () {}
-});
-
-/**
- *
- * [classNames description]
+ * BEMifies classString DSL
  *
  * @type {Function}
  */
@@ -64,46 +51,87 @@ Object.defineProperty(BEM, 'classNames', {
 
 /**
  *
- * [tokenizeClassString description]
+ * BEMifies css selector + style declarations
  *
- * @param  {[type]} block    [description]
- * @param  {[type]} classes  [description]
- * @param  {[type]} ...props [description]
- * @return {[type]}          [description]
+ * @type {Function}
  */
-export function tokenizeClassString(block, classes, ...props) {
-  classes = classes.map((x, i) => x + (props[i] || '')).join('').trim();
-  let element = classes
-    .substr(
-      classes.indexOf('@')+1,
-      !!~classes.indexOf(' ')
-        ? classes.indexOf(' ')-1
-        : undefined)
-    .replace(/\//g, '__');
-  let modifiers = classes
-    .substr(
-    !!~classes.indexOf(' ')
-      ? classes.indexOf(' ')+1
-      : classes.length)
-    .split(',')
-    .map(x => x.trim().replace('@', ''))
-    .filter(x => x);
-  return [block, element, modifiers];
+Object.defineProperty(BEM, 'css', {
+  get: function () {
+    return BEM.methods.css;
+  },
+  set: function () {}
+});
+
+/**
+ *
+ * Tokenizes a bem-utils' DSL-formatted classString
+ *
+ * @param  {String} block       The 'B' in BEM
+ * @param  {String} classString The classString
+ * @param  {*}      ...props    Template string interpolated vars
+ * @return {Array}              prefix, block, element, modifiers
+ */
+export function tokenizeClassString(block, classString, ...props) {
+  classString = classString.map((x, i) => x + (props[i] || '')).join('').trim();
+  let prefix = '';
+  let element;
+  let modifiers;
+  // Prefix
+  if (/\+|@/.test(classString[0])) {
+    if ('+@' === classString.substr(0, 2)) {
+      prefix = classString.substr(0, 2);
+    }
+    if ('@' === classString[0]) {
+      prefix = '@';
+    }
+  }
+  // Element
+  if (prefix) {
+    let start = 1;
+    let end = !!~classString.indexOf(' ')
+      ? classString.indexOf(' ')-1
+      : undefined;
+    element = classString
+      .substr(start, end)
+      .replace(/\//g, '__')
+      .replace(/\+|@/g, '');
+  }
+  // Modifiers
+  if (prefix) {
+    modifiers = classString
+      .substr(
+      !!~classString.indexOf(' ')
+        ? classString.indexOf(' ')+1
+        : classString.length)
+      .split(',')
+      .map(x => x.trim().replace(/\+|@/g, ''))
+      .filter(x => x);
+  } else {
+    modifiers = classString
+      .split(',')
+      .map(x => x.trim())
+      .filter(x => x);
+  }
+  return [prefix, block, element, modifiers];
 }
 
 /**
  *
- * [stingifyClassStringTokens description]
+ * Converts tokenized classString into an actual BEM classstring
  *
- * @param  {[type]} block     [description]
- * @param  {[type]} element   [description]
- * @param  {[type]} modifiers [description]
- * @return {[type]}           [description]
+ * @param  {String} prefix    DSL prefix
+ * @param  {String} block     The 'B' in BEM
+ * @param  {String} element   The 'E' in BEM
+ * @param  {String} modifiers The 'M' in BEM
+ * @return {String}           Formatted BEM classstring
  */
-export function stingifyClassStringTokens(block, element, modifiers) {
+export function stingifyClassStringTokens(prefix, block, element, modifiers) {
   let root = block + (element ? `__${element}` : '');
   return [
-    root,
+    prefix[0] === '+' ||
+    !modifiers.length
+      ? root
+      : undefined,
     modifiers
       .map(x => `${root}--${x.replace(/\s+/g, '--')}`)
       .join(' ')
@@ -114,9 +142,11 @@ export function stingifyClassStringTokens(block, element, modifiers) {
 
 /**
  *
- * [bemifyCSS description]
+ * BEMifies css selector + style declarations
  *
- * @param {[type]} name [description]
+ * @param  {String} block    The 'B' in BEM
+ * @param  {Array}  slectors CSS selector declaration text
+ * @return {String}          cssText
  * @example
  *   BEM('blockName').css
  *   `
@@ -124,7 +154,6 @@ export function stingifyClassStringTokens(block, element, modifiers) {
  *      color: red;
  *    `}
  *  `
- *  // outputs: .blockName--default{color:red;}
  */
 export function bemifyCSS(block, selectors, ...props) {
   selectors = selectors.map(x => bemifySelector(block, x));
@@ -137,11 +166,11 @@ export function bemifyCSS(block, selectors, ...props) {
 
 /**
  *
- * [bemifySelector description]
+ * Parses and converts css selector + style declarations
  *
- * @param  {[type]} block    [description]
- * @param  {[type]} selector [description]
- * @return {[type]}          [description]
+ * @param  {String} block     The 'B' in BEM
+ * @param  {String} selector  css selector delcaration
+ * @return {String}           The BEMified string
  */
 export function bemifySelector(block, selector) {
   return selector

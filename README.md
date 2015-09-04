@@ -37,10 +37,6 @@ BEM-style CSS through the use of *tagged template strings*. BEM is great for
 your codebase, but it's ugly, and the less you have to think about it, the
 better.
 
-##### Here's how it works for classNames:
-
-<img alt="BEM className shorthand" src="https://pbs.twimg.com/media/CNsJ7GmW8AIt23B.png:large" />
-
 Usage
 -----
 
@@ -52,23 +48,55 @@ const BLOCK = 'Button'
 
 let { classNames: cx } = BEM(BLOCK)
 
+/**
+ * The '@' symbol is used to namespace classStrings.
+ * If modifiers are omitted, only the root
+ * (block + element) className will be printed.
+ */
+
 cx`@`
 // -> Button
 
 cx`@ default`
-// -> Button Button--default
+// -> Button--default
 
 cx`@ default, tall big`
-// -> Button Button--default, Button--tall--big
+// -> Button--default, Button--tall--big
 
 cx`@content`
 // -> Button__content
 
 cx`@content/icon pink light`
-// -> Button__content__icon Button__content__icon--pink--light
+// -> Button__content__icon--pink--light
 
 cx`@content/text large, purple`
-// -> Button__content__text Button__content__text--large Button__content__text--purple
+// -> Button__content__text--large Button__content__text--purple
+
+/**
+ *  When '+@' is used at the start of the classString,,
+ *  the root className will always be printed
+ */
+
+ cx`+@`
+ // -> Button Button
+
+ cx`+@ default`
+ // -> Button Button--default
+
+ cx`+@ default, tall big`
+ // -> Button Button--default, Button--tall--big
+
+ cx`+@content`
+ // -> Button__content
+
+ cx`+@content/icon pink light`
+ // -> Button__content__icon Button__content__icon--pink--light
+
+ cx`+@content/text large, purple`
+ // -> Button__content__text Button__content__text--large Button__content__text--purple
+
+
+
 ```
 
 ### CSS

@@ -1,13 +1,91 @@
 'use strict';
 
 import { expect } from 'chai';
+const BEM = require('../src/bem').default;
+const block = 'test';
+const { classNames: cx, css } = BEM(block);
 
 describe('BEM module', () => {
 
-  it('should convert BEM className shorthand to actual BEM classNames', () => {
-    let BEM = require('../src/bem').default;
-    let block = 'test';
-    let { classNames: cx } = BEM(block);
+  it('should return block className if classString is empty', () => {
+
+    // ``
+    // test
+    expect(cx``).to.equal(
+      `${block}`
+    );
+
+  })
+
+  it('should create root modifier classsNames when prefix char is omitted', () => {
+
+    // default
+    // test--default
+    expect(cx`default`).to.equal(
+      `${block}--default`
+    );
+
+    // default, big
+    // test--default
+    expect(cx`default, big`).to.equal(
+      `${block}--default ${block}--big`
+    );
+
+    // default, big, big tall
+    // test--default
+    expect(cx`default, big, big tall`).to.equal(
+      `${block}--default ${block}--big ${block}--big--tall`
+    );
+
+  });
+
+  it('should create legit classNames in various scenarios with `+@` prefix', () => {
+
+    // +@
+    // test
+    expect(cx`+@`).to.equal(
+      `${block}`
+    );
+
+    // +@ default
+    // test test--default
+    expect(cx`+@ default`).to.equal(
+      `${block} ${block}--default`
+    );
+
+    // +@ default, tall big
+    // test test--default test--tall--big
+    expect(cx`+@ default, tall big`).to.equal(
+      `${block} ${block}--default ${block}--tall--big`
+    );
+
+    // +@content
+    // test__content
+    expect(cx`+@content`).to.equal(
+      `${block}__content`
+    );
+
+    // +@content/icon pink light
+    // test__content__icon test__content__icon--pink--light
+    expect(cx`+@content/icon pink light`).to.equal(
+      `${block}__content__icon ${block}__content__icon--pink--light`
+    );
+
+    // +@content/text large, purple
+    // test__content__text test__content__text--large test__content__text--purple
+    expect(cx`+@content/text large, purple`).to.equal(
+      `${block}__content__text ${block}__content__text--large ${block}__content__text--purple`
+    );
+
+    // +@a/b/c/d/e/f/g
+    // test__a__b__c__d__e__f__g
+    expect(cx`+@a/b/c/d/e/f/g`).to.equal(
+      `${block}__a__b__c__d__e__f__g`
+    );
+
+  });
+
+  it('should create legit classNames in various scenarios with `@` prefix', () => {
 
     // @
     // test
@@ -18,13 +96,13 @@ describe('BEM module', () => {
     // @ default
     // test test--default
     expect(cx`@ default`).to.equal(
-      `${block} ${block}--default`
+      `${block}--default`
     );
 
     // @ default, tall big
     // test test--default test--tall--big
     expect(cx`@ default, tall big`).to.equal(
-      `${block} ${block}--default ${block}--tall--big`
+      `${block}--default ${block}--tall--big`
     );
 
     // @content
@@ -36,13 +114,13 @@ describe('BEM module', () => {
     // @content/icon pink light
     // test__content__icon test__content__icon--pink--light
     expect(cx`@content/icon pink light`).to.equal(
-      `${block}__content__icon ${block}__content__icon--pink--light`
+      `${block}__content__icon--pink--light`
     );
 
     // @content/text large, purple
     // test__content__text test__content__text--large test__content__text--purple
     expect(cx`@content/text large, purple`).to.equal(
-      `${block}__content__text ${block}__content__text--large ${block}__content__text--purple`
+      `${block}__content__text--large ${block}__content__text--purple`
     );
 
     // @a/b/c/d/e/f/g
@@ -54,9 +132,6 @@ describe('BEM module', () => {
   });
 
   it('should apply BEM prefix to css selector text', () => {
-    let BEM = require('../src/bem').default;
-    let block = 'test';
-    let { css } = BEM(block);
 
     // .test--default {
     //   color: #000;
