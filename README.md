@@ -73,7 +73,7 @@ cx`@content/text large, purple`
 // -> Button__content__text--large Button__content__text--purple
 
 /**
- *  When '+@' is used at the start of the classString,,
+ *  When '+@' is used at the start of the classString,
  *  the root className will always be printed
  */
 
