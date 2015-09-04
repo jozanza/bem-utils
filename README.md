@@ -61,7 +61,7 @@ cx`@ default`
 // -> Button--default
 
 cx`@ default, tall big`
-// -> Button--default, Button--tall--big
+// -> Button--default Button--tall--big
 
 cx`@content`
 // -> Button__content
@@ -84,7 +84,7 @@ cx`@content/text large, purple`
  // -> Button Button--default
 
  cx`+@ default, tall big`
- // -> Button Button--default, Button--tall--big
+ // -> Button Button--default Button--tall--big
 
  cx`+@content`
  // -> Button__content
