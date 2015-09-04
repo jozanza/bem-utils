@@ -95,7 +95,18 @@ cx`@content/text large, purple`
  cx`+@content/text large, purple`
  // -> Button__content__text Button__content__text--large Button__content__text--purple
 
+/**
+ *
+ */
 
+cx`default`
+// -> Button--default
+
+cx`default, big`
+// -> Button--default Button--big
+
+cx`default, tall big`
+// -> Button Button--default Button--tall--big
 
 ```
 
