@@ -120,13 +120,23 @@ const BLOCK = 'Button'
 let { css } = BEM(BLOCK)
 
 css`
-  .default ${`
-    color: red;
-  `}
-  .default.big span .text:hover .purple ${`
-    color: purple;
-    text-align: center;
-  `}
+
+.default ${`
+  color: #000;
+`}
+
+.default .content .icon.pink ${`
+  color: #fff;
+  background: pink;
+  border-radius: 4px 8px;
+`}
+
+.default.big span .text:hover .purple ${`
+  color: purple;
+  text-align: center;
+  text-decoration: none;
+`}
+
 `
 ```
 
@@ -137,7 +147,15 @@ The code above outputs the following css:
   color: #000;
 }
 
+.Button--default .Button__content .Button__content__icon--pink {
+  color: #fff;
+  background: pink;
+  border-radius: 4px 8px;
+}
+
 .Button--default--big span .Button__text:hover .Button__text__purple {
   color: purple;
+  text-align: center;
+  text-decoration: none;
 }
 ```
