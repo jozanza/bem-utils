@@ -22,6 +22,8 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
+  - [classNames](#classnames)
+  - [cssText](#csstext)
 
 Installation
 ------------
@@ -34,11 +36,11 @@ your codebase, but it's ugly, and the less you have to think about it, the
 better.
 
 Usage
------
+----------
 
 ### classNames
 
-##### Setup
+#### Setup
 Start by importing the module and setting the block for the classNames you want to generate.
 
 ```js
@@ -111,7 +113,7 @@ cx`big, active, dark outlined`
 
 ```
 
-### CSS
+### cssText
 
 ```js
 import BEM from 'bem-utils'
