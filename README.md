@@ -62,8 +62,8 @@ cx`@`
 cx`@content`
 // -> Button__content
 
-cx`@content/icon`
-// -> Button__content__icon
+cx`@content/text`
+// -> Button__content__text
 ```
 
 ##### Modifiers
