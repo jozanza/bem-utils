@@ -21,10 +21,9 @@
 ### Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
-  - [General](#general)
-  - [classNames](#classnames)
-  - [CSS](#css)
+- [Setup](#setup)
+- [classNames](#classnames)
+- [CSS](#css)
 
 Installation
 ------------
@@ -36,10 +35,9 @@ BEM-style CSS through the use of *tagged template strings*. BEM is great for
 your codebase, but it's ugly, and the less you have to think about it, the
 better.
 
-Usage
-----------
+Setup
+-----
 
-### General
 Start by importing the module and setting the block for the classNames or cssText you want to generate.
 `bem-utils` has two main methods -- `classNames(...)` and `css(...)`:
 
@@ -49,7 +47,8 @@ const BLOCK = 'Button'
 let { classNames: cx, css } = BEM(BLOCK)
 ```
 
-### classNames
+classNames
+----------
 
 #### Basic
 
@@ -115,9 +114,8 @@ cx`big, active, dark outlined`
 
 ```
 
-<hr />
-
-### CSS
+CSS
+---
 
 ```js
 css`
