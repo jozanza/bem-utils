@@ -38,6 +38,7 @@ Usage
 
 ### classNames
 
+##### Setup
 Start by importing the module and setting the block for the classNames you want to generate.
 
 ```js
@@ -46,8 +47,10 @@ const BLOCK = 'Button'
 let { classNames: cx } = BEM(BLOCK)
 ```
 
-##### Basic: Blocks and Elements
-The `@` symbol can be used to produce Block+Element classNames
+#### Basic
+
+##### Blocks and Elements
+The `@` symbol can be used to produce Block+Element classNames:
 
 ```js
 cx`@`
@@ -60,7 +63,7 @@ cx`@content/icon`
 // -> Button__content__icon
 ```
 
-##### Basic: Modifiers
+##### Modifiers
 You may include any number of comma-separated modifiers following a trailing whitespace:
 
 ```js
@@ -77,7 +80,9 @@ cx`@content/text large, purple`
 // -> Button__content__text--large Button__content__text--purple
 ```
 
-##### Advanced: Blocks and Elements
+#### Advanced
+
+##### Blocks and Elements
 When `+@` is used at the start of the classString, the block+element className will *always* be printed in addition to modifier classNames:
 
 ```js
@@ -91,8 +96,8 @@ cx`+@content/text large, purple`
 // -> Button__content__text Button__content__text--large Button__content__text--purple
 ```
 
-##### Advanced: Modifiers
-If the leading `+@` or `@` is omitted, modifiers will be applied to the block
+##### Modifiers
+If the leading `+@` or `@` is omitted, modifiers will be applied to the block:
 
 ```js
 cx`default`
