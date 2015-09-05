@@ -28,7 +28,7 @@
 Installation
 ------------
 
-`npm install bem-utils`
+###### `npm install bem-utils`
 
 BEM Utils adds some sugar to writing out BEM-style className and authoring
 BEM-style CSS through the use of *tagged template strings*. BEM is great for
