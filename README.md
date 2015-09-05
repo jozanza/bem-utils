@@ -22,6 +22,7 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
+  - [General](#general)
   - [classNames](#classnames)
   - [cssText](#csstext)
 
@@ -38,16 +39,16 @@ better.
 Usage
 ----------
 
-### classNames
-
-#### Setup
-Start by importing the module and setting the block for the classNames you want to generate.
+### General
+Start by importing the module and setting the block for the classNames or cssText you want to generate.
 
 ```js
 import BEM from 'bem-utils'
 const BLOCK = 'Button'
 let { classNames: cx } = BEM(BLOCK)
 ```
+
+### classNames
 
 #### Basic
 
