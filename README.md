@@ -36,7 +36,7 @@ better.
 Usage
 -----
 
-### ClassNames
+### classNames
 
 ```js
 import BEM from 'bem-utils'
