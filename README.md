@@ -21,7 +21,7 @@
 ### Table of Contents
 
 - [Installation](#installation)
-- [Setup](#setup)
+- [Getting Started](#getting-started)
 - [classNames](#classnames)
 - [CSS](#css)
 
@@ -35,8 +35,8 @@ BEM-style CSS through the use of *tagged template strings*. BEM is great for
 your codebase, but it's ugly, and the less you have to think about it, the
 better.
 
-Setup
------
+Getting Started
+---------------
 
 Start by importing the module and setting the block for the classNames or cssText you want to generate.
 `bem-utils` has two main methods -- `classNames(...)` and `css(...)`:
