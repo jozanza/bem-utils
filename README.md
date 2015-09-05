@@ -24,7 +24,7 @@
 - [Usage](#usage)
   - [General](#general)
   - [classNames](#classnames)
-  - [cssText](#csstext)
+  - [CSS](#css)
 
 Installation
 ------------
@@ -115,14 +115,11 @@ cx`big, active, dark outlined`
 
 ```
 
-### cssText
+<hr />
+
+### CSS
 
 ```js
-import BEM from 'bem-utils'
-const BLOCK = 'Button'
-
-let { css } = BEM(BLOCK)
-
 css`
 
 .default ${`
