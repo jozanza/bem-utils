@@ -41,11 +41,12 @@ Usage
 
 ### General
 Start by importing the module and setting the block for the classNames or cssText you want to generate.
+`bem-utils` has two main methods -- `classNames(...)` and `css(...)`:
 
 ```js
 import BEM from 'bem-utils'
 const BLOCK = 'Button'
-let { classNames: cx } = BEM(BLOCK)
+let { classNames: cx, css } = BEM(BLOCK)
 ```
 
 ### classNames
