@@ -44,70 +44,70 @@ Usage
 
 ```js
 import BEM from 'bem-utils'
+// Set the Block
 const BLOCK = 'Button'
-
 let { classNames: cx } = BEM(BLOCK)
 
 /**
- * The '@' symbol is used to namespace classStrings.
- * If modifiers are omitted, only the root
- * (block + element) className will be printed.
+ * Blocks and Elements:
+ * The '@' symbol can be used to produce Block+Element classNames:
  */
 
 cx`@`
 // -> Button
 
-cx`@ default`
-// -> Button--default
-
-cx`@ default, tall big`
-// -> Button--default Button--tall--big
-
 cx`@content`
 // -> Button__content
 
-cx`@content/icon pink light`
-// -> Button__content__icon--pink--light
+cx`@content/icon`
+// -> Button__content__icon
+
+/**
+ * Modifiers:
+ * You may include any number of comma-separated modifiers
+ * following a trailing whitespace:
+ */
+
+cx`@ default`
+// -> Button--default
+
+cx`@ big, active`
+// -> Button--big Button--active
+
+cx`@content dark outlined`
+// -> Button__content--dark--outlined
 
 cx`@content/text large, purple`
 // -> Button__content__text--large Button__content__text--purple
 
 /**
- *  When '+@' is used at the start of the classString,
- *  the root className will always be printed
+ * When '+@' is used at the start of the classString,
+ * the block+element className will always be printed
+ * in addition to modifier classNames:
  */
 
- cx`+@`
- // -> Button
+cx`+@ default`
+// -> Button Button--default
 
- cx`+@ default`
- // -> Button Button--default
+cx`+@content dark outlined`
+// -> Button__content Button__content--dark--outlined
 
- cx`+@ default, tall big`
- // -> Button Button--default Button--tall--big
-
- cx`+@content`
- // -> Button__content
-
- cx`+@content/icon pink light`
- // -> Button__content__icon Button__content__icon--pink--light
-
- cx`+@content/text large, purple`
- // -> Button__content__text Button__content__text--large Button__content__text--purple
+cx`+@content/text large, purple`
+// -> Button__content__text Button__content__text--large Button__content__text--purple
 
 /**
- * You can also omit the leading special character(s) and start adding modifiers.
- * Modifiers will be applied to the proper namespace
+ * If the leading +@/@ is omitted,
+ * modifiers will be applied to the block:
  */
 
 cx`default`
 // -> Button--default
 
-cx`default, big`
-// -> Button--default Button--big
+cx`big, active`
+// -> Button--big Button--active
 
-cx`default, tall big`
-// -> Button Button--default Button--tall--big
+cx`big, active, dark outlined`
+// -> Button--big Button--active Button--dark--outlined
 
 ```
 
