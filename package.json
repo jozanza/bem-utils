@@ -1,6 +1,6 @@
 {
   "name": "bem-utils",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Sugar for writing BEM-style classNames and CSS",
   "author": "Josiah Savary <hello@jsavary.com> (jsavary.com)",
   "license": "MIT",
@@ -11,7 +11,6 @@
     "npm": "2.14"
   },
   "scripts": {
-    "postinstall": "npm run -s babel",
     "test": "npm run -s mocha -- --reporter nyan --require mocha.config test/*.spec.js",
     "babel": "npm run -s rimraf -- lib && babel src --out-dir lib --stage 0 --optional runtime",
     "lint": "npm run -s eslint -s -- src && cat winning.txt",
@@ -42,14 +41,14 @@
   },
   "dependencies": {
     "babel": "5.8.21",
-    "babel-runtime": "^5.8.20",
+    "babel-runtime": "5.8.20",
     "rimraf": "2.4.2"
   },
   "devDependencies": {
-    "babel-eslint": "4.0.10",
+    "babel-eslint": "5.0.4",
     "chai": "3.2.0",
     "coveralls": "^2.11.4",
-    "eslint": "1.2.1",
+    "eslint": "1.10.3",
     "istanbul": "0.3.18",
     "jsdom": "6.1.0",
     "mocha": "2.2.5",
