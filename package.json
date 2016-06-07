@@ -40,18 +40,18 @@
     "url": "https://github.com/jozanza/bem-utils/issues"
   },
   "dependencies": {
-    "babel": "5.8.21",
-    "babel-runtime": "5.8.20",
-    "rimraf": "2.4.2"
+    "babel": "6.5.2",
+    "babel-runtime": "6.9.2",
+    "rimraf": "2.5.2"
   },
   "devDependencies": {
-    "babel-eslint": "5.0.4",
-    "chai": "3.2.0",
+    "babel-eslint": "6.0.4",
+    "chai": "3.5.0",
     "coveralls": "^2.11.4",
-    "eslint": "1.10.3",
-    "istanbul": "0.3.18",
-    "jsdom": "6.1.0",
-    "mocha": "2.2.5",
-    "pre-commit": "1.1.1"
+    "eslint": "2.11.1",
+    "istanbul": "0.4.3",
+    "jsdom": "9.2.1",
+    "mocha": "2.5.3",
+    "pre-commit": "1.1.3"
   }
 }
