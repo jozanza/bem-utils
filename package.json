@@ -42,7 +42,7 @@
   "dependencies": {
     "babel": "5.8.21",
     "babel-runtime": "5.8.20",
-    "rimraf": "2.4.2"
+    "rimraf": "2.5.3"
   },
   "devDependencies": {
     "babel-eslint": "5.0.4",
