@@ -50,7 +50,7 @@
     "coveralls": "^2.11.4",
     "eslint": "1.10.3",
     "istanbul": "0.3.18",
-    "jsdom": "6.1.0",
+    "jsdom": "9.4.1",
     "mocha": "2.2.5",
     "pre-commit": "1.1.1"
   }
