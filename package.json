@@ -1,6 +1,6 @@
 {
   "name": "bem-utils",
-  "version": "0.2.10",
+  "version": "0.3.0",
   "description": "Sugar for writing BEM-style classNames and CSS",
   "author": "Josiah Savary <hello@jsavary.com> (jsavary.com)",
   "license": "MIT",
@@ -40,18 +40,25 @@
     "url": "https://github.com/jozanza/bem-utils/issues"
   },
   "dependencies": {
-    "babel": "5.8.21",
-    "babel-runtime": "5.8.20",
-    "rimraf": "2.4.2"
+    "babel-runtime": "6.9.2"
   },
   "devDependencies": {
-    "babel-eslint": "5.0.4",
+    "babel-cli": "6.9.0",
+    "babel-core": "6.9.1",
+    "babel-eslint": "6.0.4",
+    "babel-plugin-syntax-async-generators": "6.8.0",
+    "babel-plugin-transform-regenerator": "6.9.0",
+    "babel-plugin-transform-runtime": "6.9.0",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-stage-0": "6.5.0",
+    "babel-register": "6.9.0",
     "chai": "3.2.0",
     "coveralls": "^2.11.4",
-    "eslint": "1.10.3",
+    "eslint": "2.11.1",
     "istanbul": "0.3.18",
     "jsdom": "6.1.0",
     "mocha": "2.2.5",
-    "pre-commit": "1.1.1"
+    "pre-commit": "1.1.1",
+    "rimraf": "2.4.2"
   }
 }
