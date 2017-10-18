@@ -31,7 +31,7 @@ export default function BEM(block) {
  */
 BEM.methods = {
   css: (...args) => bemifyCSS(...args),
-  classNames: (...args) => stingifyClassStringTokens(
+  classNames: (...args) => stringifyClassStringTokens(
     ...tokenizeClassString(...args)
   )
 };
@@ -125,7 +125,7 @@ export function tokenizeClassString(block, classString, ...props) {
  * @param  {String} modifiers The 'M' in BEM
  * @return {String}           Formatted BEM classstring
  */
-export function stingifyClassStringTokens(prefix, block, element, modifiers) {
+export function stringifyClassStringTokens(prefix, block, element, modifiers) {
   let root = block + (element ? `__${element}` : '');
   return [
     prefix[0] === '+' ||
