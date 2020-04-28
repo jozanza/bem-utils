@@ -53,7 +53,7 @@
     "eslint": "2.11.1",
     "istanbul": "0.3.18",
     "jsdom": "6.1.0",
-    "mocha": "2.2.5",
+    "mocha": "3.0.0",
     "pre-commit": "1.1.1",
     "rimraf": "2.4.2"
   }
