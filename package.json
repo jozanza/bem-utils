@@ -50,7 +50,7 @@
     "babel-register": "6.9.0",
     "chai": "3.2.0",
     "coveralls": "^2.11.4",
-    "eslint": "2.11.1",
+    "eslint": "3.1.1",
     "istanbul": "0.3.18",
     "jsdom": "6.1.0",
     "mocha": "2.2.5",
