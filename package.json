@@ -51,7 +51,7 @@
     "chai": "3.2.0",
     "coveralls": "^2.11.4",
     "eslint": "2.11.1",
-    "istanbul": "0.3.18",
+    "istanbul": "0.4.5",
     "jsdom": "6.1.0",
     "mocha": "2.2.5",
     "pre-commit": "1.1.1",
